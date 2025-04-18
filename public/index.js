@@ -3,7 +3,8 @@ const term = document.querySelector("textarea");
 term.addEventListener("keydown", async (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    const input = term.value.split("\n").pop();
+    const input = term.value.split("
+").pop();
 
     const response = await fetch("/run", {
       method: "POST",
@@ -12,6 +13,7 @@ term.addEventListener("keydown", async (e) => {
     });
 
     const data = await response.text();
-    term.value += "\n" + data;
+    term.value += "
+" + data;
   }
 });
