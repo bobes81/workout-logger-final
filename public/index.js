@@ -1,17 +1,21 @@
-const term = document.querySelector("textarea");
+const terminal = document.getElementById("terminal");
+const button = document.getElementById("start-button");
 
-term.addEventListener("keydown", async (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    const input = term.value.split("\n").pop();
+button.addEventListener("click", async () => {
+  terminal.value = "Loading...\n";
 
+  try {
     const response = await fetch("/run", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ input }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ input: "start" }),
     });
 
-    const data = await response.text();
-    term.value += "\n" + data;
+    const text = await response.text();
+    terminal.value = text;
+  } catch (error) {
+    terminal.value = "Error: Could not connect to server.\n" + error;
   }
 });
