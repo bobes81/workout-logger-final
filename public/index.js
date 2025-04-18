@@ -4,7 +4,7 @@ term.addEventListener("keydown", async (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     const input = term.value.split("
-").pop();
+    ").pop();
 
     const response = await fetch("/run", {
       method: "POST",
