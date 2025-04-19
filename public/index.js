@@ -1,23 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const terminal = document.getElementById("terminal-output");
+    const terminal = document.getElementById("terminal");
     const button = document.getElementById("start-button");
   
-    button.addEventListener("click", async () => {
-      terminal.innerText = "Loading Workout Logger...\n";
+    if (terminal && button) {
+      button.addEventListener("click", async () => {
+        terminal.innerText = "Loading...\n";
   
-      try {
-        const response = await fetch("/run", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ input: "start" }),
-        });
+        try {
+          const response = await fetch("/run", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ input: "start" }),
+          });
   
-        const result = await response.text();
-        terminal.innerText = result;
-      } catch (error) {
-        terminal.innerText = "Error: Could not connect to server.\n" + error;
-      }
-    });
+          const text = await response.text();
+          terminal.innerText = text;
+        } catch (error) {
+          terminal.innerText = "Error: Could not connect to server.\n" + error;
+        }
+      });
+    } else {
+      console.error("❌ Element terminal or button not found");
+    }
   });
+  
