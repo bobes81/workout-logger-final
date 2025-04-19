@@ -10,14 +10,21 @@ body {
   }
   
   button {
-    background-color: orange;
+    background-color: #ff6f00;
     color: white;
+    border: none;
     padding: 10px 20px;
     font-size: 16px;
-    border: none;
+    font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
-    margin-bottom: 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
   }
+  
+  button:hover {
+    background-color: #e65c00;
+  }
+  
   
   .terminal-container {
     background-color: black;
