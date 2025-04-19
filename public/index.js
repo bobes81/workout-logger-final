@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const terminal = document.getElementById("terminal");
     const button = document.getElementById("start-button");
   
     button.addEventListener("click", async () => {
-      terminal.value = "Loading...\n";
+      terminal.textContent = "Loading...\n";
   
       try {
         const response = await fetch("/run", {
@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
   
         const text = await response.text();
-        terminal.value = text;
+        terminal.textContent = text;
       } catch (error) {
-        terminal.value = "Error: Could not connect to server.\n" + error;
+        terminal.textContent = "Error: Could not connect to server.\n" + error;
       }
     });
   });
