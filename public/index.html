@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Workout Logger</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="main-container">
-      <h1>Workout Logger</h1>
-      <button id="start-button">RUN PROGRAM</button>
-      <div class="terminal-container">
-        <pre id="terminal" class="terminal-output"></pre>
-      </div>
-    </div>
-    <script src="index.js" defer></script>
-  </body>
-</html>
+body {
+    font-family: monospace;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  button {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .terminal-container {
+    background-color: black;
+    color: green;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    border-radius: 5px;
+    min-height: 300px;
+  }
+  
+  .terminal-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
