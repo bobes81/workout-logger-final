@@ -25,4 +25,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("❌ Element terminal or button not found");
     }
   });
-
+  
