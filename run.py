@@ -17,8 +17,8 @@ SCOPE = [
 ]
 
 try:
-    with open("/etc/secrets/creds.json") as source:
-        creds_dict = json.load(source)
+    creds_json = os.environ.get("CREDS_JSON")
+    creds_dict = json.loads(creds_json)
     CREDS = Credentials.from_service_account_info(creds_dict)
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
