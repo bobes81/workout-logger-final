@@ -29,24 +29,16 @@ except Exception as e:
 
 # Safety questions
 def run_safety_check():
-    print(Fore.YELLOW + "\n***************************************")
-    print("WELCOME TO OUR ONLINE WORKOUT LOGGER")
-    print("***************************************")
-    print("\nBefore we get started, please answer the following medical questions:\n")
-    questions = [
-        "Do you have a heart condition?",
-        "Do you feel pain in your chest during physical activity?",
-        "Are you currently pregnant?",
-        "Do you have any joint or bone problems?",
-        "Do you experience dizziness or loss of balance?"
+    print(Fore.YELLOW + "Before we get started, please review the following safety notes:")
+    safety_notes = [
+        "✔️ If you have a heart condition, consult your doctor before exercising.",
+        "✔️ If you feel chest pain or discomfort, stop immediately.",
+        "✔️ If you are pregnant, consult a medical professional before beginning a workout.",
+        "✔️ Make sure you are hydrated and feel well before you start.",
     ]
-    for question in questions:
-        while True:
-            answer = input(f"{question} (Yes/No): ").strip().lower()
-            if answer in ["yes", "no"]:
-                break
-            else:
-                print(Fore.RED + "Please answer Yes or No.")
+    for note in safety_notes:
+        print(note)
+    print(Fore.GREEN + "✅ Safety check complete. Let's begin!\n")
 
 # Log workout
 def add_workout():
