@@ -81,26 +81,27 @@ def view_workouts():
 
 # Main menu
 def main():
-    print(Fore.YELLOW + "\nWelcome to the Workout Logger CLI App! 💪")
+    print("Welcome to the Workout Logger CLI App! 💪")
     run_safety_check()
 
-    while True:
-        print("\nWhat would you like to do?")
-        print("1. Add a new workout")
-        print("2. View workout history")
-        print("3. Exit")
+    # DEMO mód bez vstupu
+    print("What would you like to do?")
+    print("1. Add a new workout")
+    print("2. View workout history")
+    print("3. Exit")
 
-        choice = input("Enter your choice (1/2/3): ").strip()
+    # Simulace volby 2
+    choice = "2"
+    print(f"\nAuto-selected option: {choice}\n")
 
-        if choice == "1":
-            add_workout()
-        elif choice == "2":
-            view_workouts()
-        elif choice == "3":
-            print(Fore.MAGENTA + "Goodbye! Stay strong! 💙")
-            break
-        else:
-            print(Fore.RED + "Invalid input. Please choose 1, 2, or 3.")
+    if choice == "1":
+        add_workout()
+    elif choice == "2":
+        view_workouts()
+    elif choice == "3":
+        print("Goodbye! 👋")
+    else:
+        print("Invalid choice. Please enter 1, 2 or 3.")
 
 if __name__ == "__main__":
     main()
