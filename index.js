@@ -1,52 +1,41 @@
 const Pty = require('node-pty');
 const fs = require('fs');
+const http = require('http');
+const WebSocket = require('ws');
+const static = require('node-static');
 
-exports.install = function () {
-    ROUTE('/');
-    WEBSOCKET('/', socket, ['raw']);
-};
+const fileServer = new static.Server('./public');
 
-function socket() {
-    this.encodedecode = false;
-    this.autodestroy();
+const server = http.createServer((req, res) => {
+    req.addListener('end', () => {
+        fileServer.serve(req, res);
+    }).resume();
+});
 
-    this.on('open', function (client) {
-        client.tty = Pty.spawn('python3', ['run.py'], {
-            name: 'xterm-color',
-            cols: 80,
-            rows: 24,
-            cwd: process.env.PWD,
-            env: process.env
-        });
+const wss = new WebSocket.Server({ server });
 
-        client.tty.on('exit', function () {
-            client.tty = null;
-            client.close();
-            console.log("Process killed");
-        });
-
-        client.tty.on('data', function (data) {
-            client.send(data);
-        });
+wss.on('connection', function (ws) {
+    const shell = Pty.spawn('python3', ['run.py'], {
+        name: 'xterm-color',
+        cols: 80,
+        rows: 24,
+        cwd: process.env.PWD,
+        env: process.env,
     });
 
-    this.on('close', function (client) {
-        if (client.tty) {
-            client.tty.kill(9);
-            client.tty = null;
-            console.log("Process killed and terminal unloaded");
-        }
+    shell.on('data', function (data) {
+        ws.send(data);
     });
 
-    this.on('message', function (client, msg) {
-        client.tty && client.tty.write(msg);
+    ws.on('message', function (msg) {
+        shell.write(msg);
     });
-}
 
-// Create creds.json from env
-if (process.env.CREDS != null) {
-    console.log("Creating creds.json file.");
-    fs.writeFile('creds.json', process.env.CREDS, 'utf8', function (err) {
-        if (err) console.log('Error writing file: ', err);
+    ws.on('close', function () {
+        shell.kill();
     });
-}
+});
+
+server.listen(process.env.PORT || 3000, () => {
+    console.log('Server running on port ' + (process.env.PORT || 3000));
+});
