@@ -1,0 +1,10 @@
+{
+    "name": "workout-logger",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+      "node-pty": "^0.10.1",
+      "total.js": "^3.4.0"
+    }
+  }
+  
