@@ -11,7 +11,7 @@
   <div class="button-container">
     <button onclick="window.location.reload()">RUN PROGRAM</button>
   </div>
-  <div id="terminal"></div>
+  <div id="terminal" tabindex="-1"></div>
 
   <script>
     var term = new Terminal({
@@ -31,14 +31,14 @@
     );
 
     ws.onopen = function () {
-      new attach.attach(term, ws);
+      const attachAddon = new AttachAddon.AttachAddon(ws);
+      term.loadAddon(attachAddon);
+      term.focus();
     };
 
     ws.onerror = function (e) {
       console.log(e);
     };
-
-    document.getElementsByClassName("xterm-helper-textarea")[0].focus();
   </script>
 </body>
 </html>
