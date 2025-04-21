@@ -29,5 +29,10 @@ body {
     background: black;
     color: white;
   }
+  .xterm-helper-textarea {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+  }
   
     
