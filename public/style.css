@@ -1,29 +1,35 @@
 body {
-    background: #121212;
-    color: #f4f4f4;
+    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
     text-align: center;
   }
   
-  button {
-    background-color: orange;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
+  .button-container {
+    margin-top: 30px;
     margin-bottom: 20px;
   }
   
+  button {
+    width: 200px;
+    height: 40px;
+    background-color: #e84610;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
   #terminal {
-    width: 80%;
-    height: 500px;
     margin: 0 auto;
-    background-color: black;
-    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    height: 400px;
+    background-color: #000;
+    border-radius: 5px;
     overflow: hidden;
-    padding: 10px;
   }
   
