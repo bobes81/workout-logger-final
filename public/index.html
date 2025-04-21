@@ -5,7 +5,7 @@
   <title>Workout Logger</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-attach@0.7.0/lib/xterm-addon-attach.min.js"></script>
 </head>
 <body>
   <div class="button-container">
@@ -14,7 +14,7 @@
   <div id="terminal" tabindex="-1"></div>
 
   <script>
-    var term = new Terminal({
+    const term = new Terminal({
       cols: 80,
       rows: 24,
     });
@@ -22,7 +22,7 @@
     term.writeln('Running startup command: python3 run.py');
     term.writeln('');
 
-    var ws = new WebSocket(
+    const ws = new WebSocket(
       location.protocol.replace("http", "ws") +
         "//" +
         location.hostname +
@@ -31,7 +31,7 @@
     );
 
     ws.onopen = function () {
-      const attachAddon = new AttachAddon(ws);
+      const attachAddon = new AttachAddon.AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
     };
