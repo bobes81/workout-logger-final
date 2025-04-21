@@ -9,31 +9,36 @@
   <div class="button-container">
     <button onclick="window.location.reload()">RUN PROGRAM</button>
   </div>
-  <div id="terminal"></div>
+
+  <!-- obal pro terminál -->
+  <div class="terminal-container">
+    <div id="terminal"></div>
+  </div>
 
   <script type="module">
     import { Terminal } from 'https://cdn.jsdelivr.net/npm/xterm@5.1.0/+esm';
     import { AttachAddon } from 'https://cdn.jsdelivr.net/npm/xterm-addon-attach@0.9.0/+esm';
 
-    const term = new Terminal({ cols: 80, rows: 24 });
-    term.open(document.getElementById('terminal'));
-    term.writeln('Running startup command: python3 run.py\n');
+    // Po načtení DOM
+    window.addEventListener('DOMContentLoaded', () => {
+      const term = new Terminal({ cols: 80, rows: 24, cursorBlink: true });
+      term.open(document.getElementById('terminal'));
+      term.writeln('Running startup command: python3 run.py\n');
 
-    const ws = new WebSocket(
-      location.protocol.replace('http', 'ws') + '//' +
-      location.hostname +
-      (location.port ? ':' + location.port : '') + '/'
-    );
+      const ws = new WebSocket(
+        location.protocol.replace('http', 'ws') +
+        '//' + location.hostname +
+        (location.port ? ':' + location.port : '') + '/'
+      );
 
-    ws.onopen = () => {
-      const attachAddon = new AttachAddon(ws);
-      term.loadAddon(attachAddon);
-      term.focus();
-    };
+      ws.onopen = () => {
+        const attach = new AttachAddon(ws);
+        term.loadAddon(attach);
+        term.focus();
+      };
 
-    ws.onerror = (e) => {
-      console.error(e);
-    };
+      ws.onerror = (err) => console.error('WebSocket error:', err);
+    });
   </script>
 </body>
 </html>
