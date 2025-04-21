@@ -24,12 +24,10 @@ body {
   }
   
   #terminal {
-    margin: 0 auto;
-    width: 80%;
-    max-width: 800px;
-    height: 400px;
-    background-color: #000;
-    border-radius: 5px;
-    overflow: hidden;
+    height: 500px;
+    width: 100%;
+    background: black;
+    color: white;
   }
+  
     
