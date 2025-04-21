@@ -31,7 +31,7 @@
     );
 
     ws.onopen = function () {
-      const attachAddon = new AttachAddon.AttachAddon(ws);
+      const attachAddon = new AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
     };
