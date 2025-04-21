@@ -24,27 +24,13 @@ body {
   }
   
   #terminal {
-    height: 500px;
-    width: 100%;
+    height: 400px;
+    width: 700px;
+    margin: 0 auto;
     background: black;
     color: white;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
   }
-  .xterm-helper-textarea {
-    opacity: 0;
-    position: absolute;
-    left: -9999px;
-  }
-  .xterm-helper-textarea {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    height: 0;
-    width: 0;
-    z-index: -1;
-    pointer-events: none;
-  }
-
-
   
-    
