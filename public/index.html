@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Workout Logger</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" />
-    <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-attach/lib/xterm-addon-attach.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>Workout Logger</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xterm@4.19.0/lib/xterm.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-attach@0.7.0/lib/xterm-addon-attach.min.js"></script>
 </head>
 <body>
-    <button onclick="window.location.reload()">Run Program</button>
-    <div id="terminal"></div>
+  <button onclick="window.location.reload()">Run Program</button>
+  <div id="terminal"></div>
 
-    <script>
-        var term = new Terminal();
-        var attach = new AttachAddon.AttachAddon();
-        term.loadAddon(attach);
-        term.open(document.getElementById('terminal'));
+  <script>
+    var term = new Terminal({
+      cols: 80,
+      rows: 24
+    });
+    term.open(document.getElementById('terminal'));
+    term.writeln('Running startup command: python3 run.py');
+    term.writeln('');
 
-        var ws = new WebSocket(location.origin.replace(/^http/, 'ws'));
-        ws.onopen = function () {
-            attach.activate(ws);
-        };
-    </script>
+    var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.hostname + (location.port ? (':' + location.port) : '') + '/');
+
+    ws.onopen = function () {
+      new AttachAddon.AttachAddon(ws).attach(term);
+    };
+
+    ws.onerror = function (e) {
+      console.log(e);
+    };
+
+    // Set focus
+    document.getElementsByClassName("xterm-helper-textarea")[0].focus();
+  </script>
 </body>
 </html>
