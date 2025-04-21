@@ -91,8 +91,7 @@ def main():
     print("2. View workout history")
     print("3. Exit")
 
-    # Simulace volby 2
-    choice = "2"
+    choice = input("Enter your choice (1/2/3): ").strip()
     print(f"\nAuto-selected option: {choice}\n")
 
     if choice == "1":
