@@ -11,10 +11,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const ws = new WebSocket(
       location.protocol.replace('http', 'ws') + '//' +
       location.hostname +
-      (location.port ? ':' + location.port : '') + '/'
+      (location.port ? ':' + location.port : '')
     );
   
     ws.onopen = () => {
+      const AttachAddon = window['AttachAddon'];  // 💡 Oprava zde
       const attachAddon = new AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
