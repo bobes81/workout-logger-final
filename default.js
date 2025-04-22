@@ -2,6 +2,9 @@ const pty = require('node-pty');
 const fs = require('fs');
 
 exports.install = function () {
+  // Serve static files from the public folder
+  STATIC('public');
+
   // Define the route for homepage
   ROUTE('/');
 
