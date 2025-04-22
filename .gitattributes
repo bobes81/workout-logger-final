@@ -1,0 +1,2 @@
+# Exclude frontend files from language statistics
+/frontend/* linguist-vendored
