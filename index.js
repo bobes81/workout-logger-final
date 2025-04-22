@@ -3,52 +3,52 @@ const fs = require('fs');
 const path = require('path');
 const static = require('node-static');
 const WebSocket = require('ws');
-const Pty = require('node-pty');
+const pty = require('node-pty');
 
-// Slouží statické soubory (např. index.html, style.css, atd.) z ./public
+// Statický server pro složku /public
 const fileServer = new static.Server('./public');
 
-// HTTP server pro načtení webové stránky
+// Vytvoření HTTP serveru (pro HTML stránku)
 const server = http.createServer((req, res) => {
   req.addListener('end', () => {
     fileServer.serve(req, res);
   }).resume();
 });
 
-// WebSocket server propojený s HTTP serverem
+// WebSocket server napojený na HTTP server
 const wss = new WebSocket.Server({ server });
 
-// Když se klient připojí přes WebSocket
+// Spuštění WebSocket spojení
 wss.on('connection', (ws) => {
   console.log('🔌 Client connected');
 
-  // Ověření existence run.py
   const scriptPath = path.join(__dirname, 'run.py');
+
+  // Ověření existence skriptu
   if (!fs.existsSync(scriptPath)) {
-    const errMsg = '❌ Error: run.py not found in root directory.';
-    console.error(errMsg);
-    ws.send(errMsg);
+    const msg = '❌ Error: run.py not found.';
+    console.error(msg);
+    ws.send(msg);
     ws.close();
     return;
   }
 
   try {
-    // Spuštění Python skriptu jako pseudoterminál
-    const shell = Pty.spawn('python3', ['run.py'], {
+    // Spuštění run.py jako pseudoterminálu
+    const shell = pty.spawn('python3', ['run.py'], {
       name: 'xterm-color',
       cols: 80,
       rows: 24,
-      cwd: process.env.PWD,
-      env: process.env,
+      cwd: process.cwd(),
+      env: process.env
     });
 
     shell.on('data', (data) => {
-      console.log('[PTY]', data);
       ws.send(data);
     });
 
     shell.on('exit', (code, signal) => {
-      console.log(`📤 PTY exited | code: ${code}, signal: ${signal}`);
+      console.log(`📤 PTY exited (code: ${code}, signal: ${signal})`);
     });
 
     ws.on('message', (msg) => {
@@ -68,16 +68,15 @@ wss.on('connection', (ws) => {
       console.error('WebSocket error:', err);
     });
 
-  } catch (error) {
-    console.error('🔥 Failed to start PTY:', error.message);
-    ws.send(`Error: ${error.message}`);
+  } catch (err) {
+    console.error('🔥 PTY spawn failed:', err.message);
+    ws.send(`Error: ${err.message}`);
     ws.close();
   }
 });
 
-// Start serveru
-const options = {};
-options.port = parseInt(process.env.PORT, 10) || 3000;
-
-// Start Total.js v "release" módu
-require('total4').http('release', options);
+// Start serveru (pro Heroku port nebo localhost)
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
