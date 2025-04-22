@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
     ws.onopen = () => {
       // Použijeme AttachAddon (správně připojí terminál k WS)
-      const attachAddon = new AttachAddon(ws);
+      const attachAddon = new window.AttachAddon.AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
   
@@ -30,4 +30,3 @@ window.addEventListener('DOMContentLoaded', () => {
       console.error('WebSocket error:', err);
     };
   });
-  
