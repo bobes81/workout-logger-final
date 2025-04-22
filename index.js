@@ -5,8 +5,8 @@ const static = require('node-static');
 const WebSocket = require('ws');
 const pty = require('node-pty');
 
-// Statický server pro složku /public
-const fileServer = new static.Server('./public');
+// Statický server pro složku /frontend
+const fileServer = new static.Server('./frontend');
 
 // Vytvoření HTTP serveru (pro HTML stránku)
 const server = http.createServer((req, res) => {
