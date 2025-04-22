@@ -1,31 +1,27 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const term = new Terminal({
-      cols: 80,
-      rows: 24,
-      cursorBlink: true,
+    var term = new Terminal({
+        cols: 80,
+        rows: 24,
+        cursorBlink: true,
     });
-  
+
     term.open(document.getElementById('terminal'));
     term.writeln('Running startup command: python3 run.py\n');
-  
-    const ws = new WebSocket(
-      location.protocol.replace('http', 'ws') + '//' +
-      location.hostname +
-      (location.port ? ':' + location.port : '')
+
+    var ws = new WebSocket(
+        location.protocol.replace('http', 'ws') + '//' +
+        location.hostname +
+        (location.port ? ':' + location.port : '') + '/'
     );
-  
-    ws.onopen = () => {
-      const attachAddon = new AttachAddon.AttachAddon(ws);
-      term.loadAddon(attachAddon);
-      term.focus();
-      // ❌ Tohle tady NESMÍ být:
-      // term.onData((data) => {
-      //   ws.send(data);
-      // });
+
+    ws.onopen = function () {
+        new attach.attach(term, ws); // ✅ použije starý attach.js
     };
-  
-    ws.onerror = (err) => {
-      console.error('WebSocket error:', err);
+
+    ws.onerror = function (e) {
+        console.error('WebSocket error:', e);
     };
-  });
-  
+
+    // Focus do terminálu
+    document.getElementsByClassName("xterm-helper-textarea")[0].focus();
+});
