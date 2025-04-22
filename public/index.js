@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 const static = require('node-static');
 const WebSocket = require('ws');
 const Pty = require('node-pty');
@@ -19,45 +20,63 @@ const wss = new WebSocket.Server({ server });
 
 // Když se klient připojí přes WebSocket
 wss.on('connection', (ws) => {
-  console.log('Client connected');
+  console.log('🔌 Client connected');
 
-  // Spuštění Python skriptu jako pseudoterminál
-  const shell = Pty.spawn('python3', ['run.py'], {
-    name: 'xterm-color',
-    cols: 80,
-    rows: 24,
-    cwd: process.env.PWD,
-    env: process.env,
-  });
+  // Ověření existence run.py
+  const scriptPath = path.join(__dirname, 'run.py');
+  if (!fs.existsSync(scriptPath)) {
+    const errMsg = '❌ Error: run.py not found in root directory.';
+    console.error(errMsg);
+    ws.send(errMsg);
+    ws.close();
+    return;
+  }
 
-  // Posílání dat z Pythonu klientovi
-  shell.on('data', (data) => {
-    ws.send(data);
-  });
+  try {
+    // Spuštění Python skriptu jako pseudoterminál
+    const shell = Pty.spawn('python3', ['run.py'], {
+      name: 'xterm-color',
+      cols: 80,
+      rows: 24,
+      cwd: process.env.PWD,
+      env: process.env,
+    });
 
-  // Posílání dat od klienta Python skriptu
-  ws.on('message', (msg) => {
-    shell.write(msg);
-  });
+    shell.on('data', (data) => {
+      console.log('[PTY]', data);
+      ws.send(data);
+    });
 
-  // Zavření spojení
-  ws.on('close', () => {
-    console.log('Client disconnected');
-    shell.kill();
-  });
+    shell.on('exit', (code, signal) => {
+      console.log(`📤 PTY exited | code: ${code}, signal: ${signal}`);
+    });
 
-  // Ošetření chyb
-  shell.on('error', (err) => {
-    console.error('Shell error:', err);
-  });
+    ws.on('message', (msg) => {
+      shell.write(msg);
+    });
 
-  ws.on('error', (err) => {
-    console.error('WebSocket error:', err);
-  });
+    ws.on('close', () => {
+      console.log('❎ Client disconnected');
+      shell.kill();
+    });
+
+    shell.on('error', (err) => {
+      console.error('Shell error:', err);
+    });
+
+    ws.on('error', (err) => {
+      console.error('WebSocket error:', err);
+    });
+
+  } catch (error) {
+    console.error('🔥 Failed to start PTY:', error.message);
+    ws.send(`Error: ${error.message}`);
+    ws.close();
+  }
 });
 
 // Start serveru
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
