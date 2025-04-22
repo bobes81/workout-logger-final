@@ -18,8 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const attachAddon = new AttachAddon.AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
-  
-      // ❌ TOTO ODSTRANIT, jinak bude vstup dvakrát!
+      // ❌ Tohle tady NESMÍ být:
       // term.onData((data) => {
       //   ws.send(data);
       // });
