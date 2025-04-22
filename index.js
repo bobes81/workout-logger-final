@@ -76,7 +76,8 @@ wss.on('connection', (ws) => {
 });
 
 // Start serveru
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+const options = {};
+options.port = parseInt(process.env.PORT, 10) || 3000;
+
+// Start Total.js v "release" módu
+require('total4').http('release', options);
