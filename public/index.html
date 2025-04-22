@@ -9,11 +9,11 @@
   <!-- Xterm knihovna -->
   <script src="https://cdn.jsdelivr.net/npm/xterm@4.15.0/lib/xterm.min.js"></script>
 
-  <!-- Addon musí být přes UMD balíček (funguje 100%) -->
-  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-attach@0.7.0/lib/xterm-addon-attach.umd.min.js"></script>
+  <!-- AttachAddon (bez .umd!) -->
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-attach@0.7.0/lib/xterm-addon-attach.min.js"></script>
 
   <!-- Tvůj vlastní JS -->
-  <script src="client.js"></script>
+  <script src="client.js" defer></script>
 </head>
 <body>
   <div class="button-container">
