@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     );
   
     ws.onopen = () => {
-      const attachAddon = new window.AttachAddon.AttachAddon(ws); // <- TADY JE TEN KLÍČ!
+      const attachAddon = new AttachAddon.AttachAddon(ws); // ✅ Opraveno!
       term.loadAddon(attachAddon);
       term.focus();
   
