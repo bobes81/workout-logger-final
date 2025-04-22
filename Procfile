@@ -1,4 +1,4 @@
-web: node public/index.js
+web: node public
 
 
 
