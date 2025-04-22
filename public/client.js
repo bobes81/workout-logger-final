@@ -15,13 +15,15 @@ window.addEventListener('DOMContentLoaded', () => {
     );
   
     ws.onopen = () => {
-      const attachAddon = new AttachAddon(ws); // ✅ Opraveno
+      // Použijeme AttachAddon (správně připojí terminál k WS)
+      const attachAddon = new AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
   
-      term.onData((data) => {
-        ws.send(data);
-      });
+      // ❌ TOTO ZDE ODSTRAŇ — už to řeší AttachAddon
+      // term.onData((data) => {
+      //   ws.send(data);
+      // });
     };
   
     ws.onerror = (err) => {
