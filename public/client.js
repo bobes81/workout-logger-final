@@ -15,10 +15,15 @@ window.addEventListener('DOMContentLoaded', () => {
     );
   
     ws.onopen = () => {
-      const AttachAddon = window['AttachAddon'];  // 💡 Oprava zde
+      const AttachAddon = window['AttachAddon'];
       const attachAddon = new AttachAddon(ws);
       term.loadAddon(attachAddon);
       term.focus();
+  
+      // 💥 Tady přidáváme input forwarding
+      term.onData((data) => {
+        ws.send(data);
+      });
     };
   
     ws.onerror = (err) => {
