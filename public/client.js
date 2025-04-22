@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const term = new Terminal({
       cols: 80,
       rows: 24,
-      cursorBlink: true
+      cursorBlink: true,
     });
   
     term.open(document.getElementById('terminal'));
@@ -15,12 +15,10 @@ window.addEventListener('DOMContentLoaded', () => {
     );
   
     ws.onopen = () => {
-      const AttachAddon = window['AttachAddon'];
-      const attachAddon = new AttachAddon(ws);
+      const attachAddon = new window.AttachAddon.AttachAddon(ws); // <- TADY JE TEN KLÍČ!
       term.loadAddon(attachAddon);
       term.focus();
   
-      // 💥 Tady přidáváme input forwarding
       term.onData((data) => {
         ws.send(data);
       });
