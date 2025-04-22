@@ -1,20 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const term = new window.Terminal({ cols: 80, rows: 24, cursorBlink: true });
+window.addEventListener('DOMContentLoaded', () => {
+    const term = new Terminal({
+      cols: 80,
+      rows: 24,
+      cursorBlink: true
+    });
+  
     term.open(document.getElementById('terminal'));
     term.writeln('Running startup command: python3 run.py\n');
   
     const ws = new WebSocket(
-      location.protocol.replace('http', 'ws') +
-      '//' + location.hostname +
+      location.protocol.replace('http', 'ws') + '//' +
+      location.hostname +
       (location.port ? ':' + location.port : '') + '/'
     );
   
     ws.onopen = () => {
-      const attach = new window.AttachAddon(ws);
-      term.loadAddon(attach);
+      const attachAddon = new AttachAddon(ws);
+      term.loadAddon(attachAddon);
       term.focus();
     };
   
-    ws.onerror = (err) => console.error('WebSocket error:', err);
+    ws.onerror = (err) => {
+      console.error('WebSocket error:', err);
+    };
   });
   
