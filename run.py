@@ -22,24 +22,33 @@ try:
     CREDS = Credentials.from_service_account_info(creds_dict)
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-    SHEET = GSPREAD_CLIENT.open_by_key("1sUgs6mm_g2wbyyLuSQjLvFOVHe_XpYVGGucRCXgzZWc")
+    SHEET = GSPREAD_CLIENT.open_by_key(
+        "1sUgs6mm_g2wbyyLuSQjLvFOVHe_XpYVGGucRCXgzZWc"
+    )
     worksheet = SHEET.worksheet("Sheet1")
 except Exception as e:
     print(Fore.RED + f"\nError connecting to Google Sheet: {e}")
     sys.exit(1)
 
+
 # Safety questions
 def run_safety_check():
-    print(Fore.YELLOW + "Before we get started, please review the following safety notes:")
+    print(
+        Fore.YELLOW + "Before we get started, please review the "
+        "following safety notes:"
+    )
     safety_notes = [
-        "✔️ If you have a heart condition, consult your doctor before exercising.",
+        "✔️ If you have a heart condition, consult your doctor before "
+        "exercising.",
         "✔️ If you feel chest pain or discomfort, stop immediately.",
-        "✔️ If you are pregnant, consult a medical professional before beginning a workout.",
+        "✔️ If you are pregnant, consult a medical professional before "
+        "beginning a workout.",
         "✔️ Make sure you are hydrated and feel well before you start.",
     ]
     for note in safety_notes:
         print(note)
     print(Fore.GREEN + "✅ Safety check complete. Let's begin!\n")
+
 
 # Log workout
 def add_workout():
@@ -54,7 +63,9 @@ def add_workout():
             print(Fore.RED + "Please enter a valid number.")
 
     while True:
-        intensity = input("Intensity (Low / Medium / High): ").strip().capitalize()
+        intensity = input(
+            "Intensity (Low / Medium / High): "
+        ).strip().capitalize()
         if intensity in ["Low", "Medium", "High"]:
             break
         else:
@@ -67,6 +78,7 @@ def add_workout():
     except Exception as e:
         print(Fore.RED + f"Failed to log workout: {e}")
 
+
 # View workouts
 def view_workouts():
     print(Fore.CYAN + "\nYour workout history:")
@@ -76,9 +88,13 @@ def view_workouts():
             print("No workouts logged yet.")
             return
         for row in data[1:]:
-            print(f"Date: {row[0]} | Exercise: {row[1]} | Duration: {row[2]} mins | Intensity: {row[3]}")
+            print(
+                f"Date: {row[0]} | Exercise: {row[1]} | "
+                f"Duration: {row[2]} mins | Intensity: {row[3]}"
+            )
     except Exception as e:
         print(Fore.RED + f"Error reading from sheet: {e}")
+
 
 # Main menu
 def main():
@@ -103,6 +119,7 @@ def main():
             break
         else:
             print("Invalid choice. Please enter 1, 2 or 3.")
+
 
 if __name__ == "__main__":
     main()
