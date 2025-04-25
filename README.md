@@ -196,9 +196,29 @@ CI Python Linter
 
 👏 Credits
 
-Code Institute – for curriculum structure, project templates and deployment guidance.  
+Code Institute – for curriculum structure, project templates and deployment guidance.
 
-... (zbytek zůstává stejný – celý přenosný blok byl zkrácen kvůli délce, ale zbytek je už aplikován stejně)
+gspread – for working with Google Sheets API.
+
+Google Auth – for secure API access.
+
+Emojipedia – for emoji icons used throughout the README.
+
+Stack Overflow – for debugging assistance and guidance on input validation patterns.
+
+W3Schools Python Reference – used for Python syntax and logic refresher during development.
+
+MDN Web Docs – used for HTML elements and attributes used in the frontend (xterm integration).
+
+Heroku Documentation – for guidance on deploying both CLI and static frontend apps.
+
+YouTube: Python CLI Projects – general inspiration and practices for CLI structure and interactivity.
+
+xterm.js Documentation – for frontend terminal emulator setup.
+
+ChatGPT – helped with code reviews and also with creation of pictures.
+
+<hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
 📄 License  
 This project is licensed under the MIT License.
