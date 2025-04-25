@@ -127,44 +127,15 @@ Use the terminal options to add new workouts or review history.
 ⸻
 
 🧪 Testing
-
-Testing was carried out continuously throughout the development of the Workout Logger project. Each feature and user interaction was tested manually to ensure a smooth and bug-free experience.
-
 ✅ Input Validation
-
-<div style="background-color: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: monospace;">
-
-Validation - Error Message	Expected Input Type	Is Error Displayed?
-Type of exercise	Text (letters only)	✅ Yes
-Duration in minutes	Integer > 0	✅ Yes
-Intensity	“Low”, “Medium”, “High”	✅ Yes
-Safety Confirmation	Visual only (info prompt)	✅ Yes
-
-</div>
-
+<table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Validation - Error Message</th> <th>Expected Input Type</th> <th>Is Error Displayed?</th> </tr> <tr> <td>Type of exercise</td> <td>Text (letters only)</td> <td>✅ Yes</td> </tr> <tr> <td>Duration in minutes</td> <td>Integer > 0</td> <td>✅ Yes</td> </tr> <tr> <td>Intensity</td> <td>“Low”, “Medium”, “High”</td> <td>✅ Yes</td> </tr> <tr> <td>Safety Confirmation</td> <td>Visual only (info prompt)</td> <td>✅ Yes</td> </tr> </table>
 📝 All fields were tested with both correct and incorrect inputs to confirm robust validation and user prompts.
 
 🔁 Functionality Testing
-
-<div style="background-color: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: monospace;">
-
-Function	Expected Behavior	Passed?
-run_safety_check()	Displays health & safety information	✅ Yes
-add_workout()	Validates input and logs data to Google Sheet	✅ Yes
-view_workouts()	Displays previously logged data	✅ Yes
-
-</div>
+<table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Function</th> <th>Expected Behavior</th> <th>Passed?</th> </tr> <tr> <td>run_safety_check()</td> <td>Displays health & safety information</td> <td>✅ Yes</td> </tr> <tr> <td>add_workout()</td> <td>Validates input and logs data to Google Sheet</td> <td>✅ Yes</td> </tr> <tr> <td>view_workouts()</td> <td>Displays previously logged data</td> <td>✅ Yes</td> </tr> </table>
 
 ☁️ Google Sheets Integration
-
-<div style="background-color: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: monospace;">
-✅ Successfully connects using `CREDS_JSON` environment variable<br>
-✅ Appends workout entries correctly to the designated worksheet<br>
-✅ Retrieves existing data for review<br>
-✅ Handles connection errors gracefully<br>
-🔒 Credentials are hidden from repository and included in `.gitignore`
-</div>
-
+<table style="width:100%; border-collapse: collapse;" border="1"> <tr><td>✅ Successfully connects using <code>CREDS_JSON</code> environment variable</td></tr> <tr><td>✅ Appends workout entries correctly to the designated worksheet</td></tr> <tr><td>✅ Retrieves existing data for review</td></tr> <tr><td>✅ Handles connection errors gracefully</td></tr> <tr><td>🔒 Credentials are hidden from repository and included in <code>.gitignore</code></td></tr> </table>
 
 ⸻
 
@@ -198,17 +169,17 @@ Frontend Terminal Setup (Xterm)
 
 ⸻
 
-🧭 User Flow Diagrams
+### 🧭 User Flow Diagrams
 
-### 🧭 User Flow Diagram 1 – Workout Logger Main Logic
+## 🧭 User Flow Diagram 1 – Workout Logger Main Logic
 
 <img src="pictures/main-picture.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
 
-### 🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
+## 🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
 
 <img src="pictures/how-its-work.jpg" alt="Extended Workflow with Safety Flow" width="600" />
 
-### 🧭 User Flow Diagram 3 – Adding a Workout
+## 🧭 User Flow Diagram 3 – Adding a Workout
 
 <img src="pictures/adding a workout.jpg" alt="Add Workout Logic Diagram" width="600" />
 
