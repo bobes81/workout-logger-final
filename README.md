@@ -129,15 +129,17 @@ Use the terminal options to add new workouts or review history.
 🧪 Testing
 ✅ Input Validation
 <table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Validation - Error Message</th> <th>Expected Input Type</th> <th>Is Error Displayed?</th> </tr> <tr> <td>Type of exercise</td> <td>Text (letters only)</td> <td>✅ Yes</td> </tr> <tr> <td>Duration in minutes</td> <td>Integer > 0</td> <td>✅ Yes</td> </tr> <tr> <td>Intensity</td> <td>“Low”, “Medium”, “High”</td> <td>✅ Yes</td> </tr> <tr> <td>Safety Confirmation</td> <td>Visual only (info prompt)</td> <td>✅ Yes</td> </tr> </table>
+
 📝 All fields were tested with both correct and incorrect inputs to confirm robust validation and user prompts.
 
 🔁 Functionality Testing
 <table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Function</th> <th>Expected Behavior</th> <th>Passed?</th> </tr> <tr> <td>run_safety_check()</td> <td>Displays health & safety information</td> <td>✅ Yes</td> </tr> <tr> <td>add_workout()</td> <td>Validates input and logs data to Google Sheet</td> <td>✅ Yes</td> </tr> <tr> <td>view_workouts()</td> <td>Displays previously logged data</td> <td>✅ Yes</td> </tr> </table>
 
+
 ☁️ Google Sheets Integration
 <table style="width:100%; border-collapse: collapse;" border="1"> <tr><td>✅ Successfully connects using <code>CREDS_JSON</code> environment variable</td></tr> <tr><td>✅ Appends workout entries correctly to the designated worksheet</td></tr> <tr><td>✅ Retrieves existing data for review</td></tr> <tr><td>✅ Handles connection errors gracefully</td></tr> <tr><td>🔒 Credentials are hidden from repository and included in <code>.gitignore</code></td></tr> </table>
 
-⸻
+
 
 ☁️ Deployment
 
@@ -200,7 +202,7 @@ CI Python Linter
 
 <img src="pictures/CI Python Linter.jpg" alt="CI Python Linter Results" width="600" />
 
-⸻
+
 
 🔧 Features Left to Implement
 
@@ -210,7 +212,7 @@ CI Python Linter
 📈 Progress Graphs
 🔐 User Authentication
 
-⸻
+
 
 👏 Credits
 
@@ -236,7 +238,7 @@ xterm.js Documentation – for frontend terminal emulator setup.
 
 ChatGPT – helped with code reviews and also with creation of pictures.
 
-⸻
+
 
 📄 License
 This project is licensed under the MIT License.
