@@ -1,4 +1,4 @@
-📘 Workout Logger – Command Line Python App
+ano prosim : 📘 Workout Logger – Command Line Python App
 
 <img src="pictures/workout-logger.jpg" alt="Workout Logger Project Title Image" width="600" />
 
@@ -222,4 +222,3 @@ ChatGPT – helped with code reviews and also with creation of pictures.
 
 📄 License
 This project is licensed under the MIT License.
-
