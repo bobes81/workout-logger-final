@@ -22,6 +22,7 @@ As a user, I want to be informed about safety considerations before exercising t
 
 As a user, I want to view a list of my previous workouts to stay motivated and monitor my habits.
 
+
 ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🏗️ Structure
