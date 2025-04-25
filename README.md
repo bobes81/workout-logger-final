@@ -189,21 +189,21 @@ The following diagrams illustrate the logic and user flow of the Workout Logger 
 This diagram outlines the core navigation logic.
 Users start at the main_menu(), provide manual input, and are routed based on valid or invalid decisions.
 
-<img src="pictures/main-menu-diagram.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
+<img src="pictures/diagram1.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
 
 #### 🔍 User Flow Diagram 2 – Extended Workflow with Safety Layer
 
 This chart includes a safety layer before logging a workout.
 Users receive safety information before proceeding, with options to view logs or proceed to workout entry.
 
-<img src="pictures/how-its-work.jpg" alt="Extended Workflow with Safety Flow" width="600" />
+<img src="pictures/diagram2.jpg" alt="Extended Workflow with Safety Flow" width="600" />
 
 #### 🔍 User Flow Diagram 3 – Adding a Workout
 
 This diagram focuses on the add_workout() process.
 Users enter workout details, and upon validation, the workout is logged successfully.
 
-<img src="pictures/adding-workout-diagram.jpg" alt="Add Workout Logic Diagram" width="600" />
+<img src="pictures/diagram3.jpg" alt="Add Workout Logic Diagram" width="600" />
 
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
