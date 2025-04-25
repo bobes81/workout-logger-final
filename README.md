@@ -128,26 +128,35 @@ Use the terminal options to add new workouts or review history.
 
 🧪 Testing
 
+Testing was carried out continuously throughout the development of the Workout Logger project. Each feature and user interaction was tested manually to ensure a smooth and bug-free experience.
+
 ✅ Input Validation
+
 <div style="background-color: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: monospace;">
+
 Validation - Error Message	Expected Input Type	Is Error Displayed?
 Type of exercise	Text (letters only)	✅ Yes
 Duration in minutes	Integer > 0	✅ Yes
 Intensity	“Low”, “Medium”, “High”	✅ Yes
 Safety Confirmation	Visual only (info prompt)	✅ Yes
+
 </div>
 
 📝 All fields were tested with both correct and incorrect inputs to confirm robust validation and user prompts.
 
 🔁 Functionality Testing
+
 <div style="background-color: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: monospace;">
+
 Function	Expected Behavior	Passed?
 run_safety_check()	Displays health & safety information	✅ Yes
 add_workout()	Validates input and logs data to Google Sheet	✅ Yes
 view_workouts()	Displays previously logged data	✅ Yes
+
 </div>
 
 ☁️ Google Sheets Integration
+
 <div style="background-color: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: monospace;">
 ✅ Successfully connects using `CREDS_JSON` environment variable<br>
 ✅ Appends workout entries correctly to the designated worksheet<br>
@@ -155,6 +164,7 @@ view_workouts()	Displays previously logged data	✅ Yes
 ✅ Handles connection errors gracefully<br>
 🔒 Credentials are hidden from repository and included in `.gitignore`
 </div>
+
 
 ⸻
 
@@ -232,6 +242,7 @@ CI Python Linter
 ⸻
 
 👏 Credits
+
 Code Institute – for curriculum structure, project templates and deployment guidance.
 
 gspread – for working with Google Sheets API.
@@ -253,6 +264,7 @@ YouTube: Python CLI Projects – general inspiration and practices for CLI struc
 xterm.js Documentation – for frontend terminal emulator setup.
 
 ChatGPT – helped with code reviews and also with creation of pictures.
+
 ⸻
 
 📄 License
