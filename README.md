@@ -192,7 +192,7 @@ Frontend Terminal Setup (Xterm)
 
 ### 🧭 User Flow Diagram 1 – Workout Logger Main Logic
 
-<img src="pictures/main-menu.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
+<img src="pictures/main-picture.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
 
 ### 🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
 
