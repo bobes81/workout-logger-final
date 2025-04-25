@@ -205,6 +205,7 @@ Users enter workout details, and upon validation, the workout is logged successf
 
 <img src="pictures/Adding a Workout.jpg" alt="Add Workout Logic Diagram" width="600" />
 
+
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
 ### 🚑 Error Handling & Validation
