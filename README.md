@@ -2,32 +2,17 @@
 
 <img src="pictures/workout-logger.jpg" alt="Workout Logger Project Title Image" width="600" />
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
-📖 Table of Contents
-• Overview
-• User Stories
-• Structure
-• Features
-• Technologies Used
-• Installation
-• Usage
-• Testing
-• Deployment
-• Version Control
-• User Flow Diagrams
-• Error Handling & Validation
-• Features Left to Implement
-• Credits
-• License
+📖 Table of Contents • Overview • User Stories • Structure • Features • Technologies Used • Installation • Usage • Testing • Deployment • Version Control • User Flow Diagrams • Error Handling & Validation • Features Left to Implement • Credits • License
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🧩 Overview
 
 Workout Logger is a command-line interface (CLI) application built in Python. The app allows users to log their workouts by entering type, duration, and intensity, while storing the information securely in a Google Sheet. It includes built-in safety guidance and a review option to see logged workouts.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 👤 User Stories
 
@@ -37,7 +22,7 @@ As a user, I want to be informed about safety considerations before exercising t
 
 As a user, I want to view a list of my previous workouts to stay motivated and monitor my habits.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🏗️ Structure
 
@@ -80,7 +65,7 @@ When a menu is shown, the user is prompted for a number.
 
 <img src="pictures/exit.jpg" alt="Exit Message" width="600" />
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 ✨ Features
 • 💬 Safety pre-check information before workout logging
@@ -89,7 +74,7 @@ When a menu is shown, the user is prompted for a number.
 • 📅 Google Sheets integration for persistent storage
 • 📖 View workout history in an easy-to-read format
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🛠️ Technologies Used
 • Python 3.13
@@ -98,7 +83,7 @@ When a menu is shown, the user is prompted for a number.
 • Git & GitHub for version control
 • Heroku for deployment (backend CLI app)
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🧰 Installation
 1. Clone this repository:
@@ -115,7 +100,7 @@ pip install -r requirements.txt
 ```
 4. Setup CREDS_JSON as environment variable using your Google Service Account credentials.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🚀 Usage
 Run the application locally:
@@ -124,10 +109,9 @@ python run.py
 ```
 Use the terminal options to add new workouts or review history.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🧪 Testing
-
 ✅ Input Validation
 <table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Validation - Error Message</th> <th>Expected Input Type</th> <th>Is Error Displayed?</th> </tr> <tr> <td>Type of exercise</td> <td>Text (letters only)</td> <td>✅ Yes</td> </tr> <tr> <td>Duration in minutes</td> <td>Integer > 0</td> <td>✅ Yes</td> </tr> <tr> <td>Intensity</td> <td>“Low”, “Medium”, “High”</td> <td>✅ Yes</td> </tr> <tr> <td>Safety Confirmation</td> <td>Visual only (info prompt)</td> <td>✅ Yes</td> </tr> </table>
 
@@ -136,12 +120,10 @@ Use the terminal options to add new workouts or review history.
 🔁 Functionality Testing
 <table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Function</th> <th>Expected Behavior</th> <th>Passed?</th> </tr> <tr> <td>run_safety_check()</td> <td>Displays health & safety information</td> <td>✅ Yes</td> </tr> <tr> <td>add_workout()</td> <td>Validates input and logs data to Google Sheet</td> <td>✅ Yes</td> </tr> <tr> <td>view_workouts()</td> <td>Displays previously logged data</td> <td>✅ Yes</td> </tr> </table>
 
-⸻
-
 ☁️ Google Sheets Integration
 <table style="width:100%; border-collapse: collapse;" border="1"> <tr><td>✅ Successfully connects using <code>CREDS_JSON</code> environment variable</td></tr> <tr><td>✅ Appends workout entries correctly to the designated worksheet</td></tr> <tr><td>✅ Retrieves existing data for review</td></tr> <tr><td>✅ Handles connection errors gracefully</td></tr> <tr><td>🔒 Credentials are hidden from repository and included in <code>.gitignore</code></td></tr> </table>
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 ☁️ Deployment
 
@@ -163,7 +145,7 @@ Frontend Terminal Setup (Xterm)
 • xterm.js renders the terminal interface in browser.
 • .gitattributes hides frontend from language stats.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🗂️ Version Control
 • Each new feature or improvement was implemented on a separate branch.
@@ -171,37 +153,36 @@ Frontend Terminal Setup (Xterm)
 • All changes were merged into main after local testing.
 • GitHub ensured code backup and supported Heroku integration.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
-## 🧭 User Flow Diagrams
+### 🧭 User Flow Diagrams
 
-### 🧭 User Flow Diagram 1 – Workout Logger Main Logic
+🧭 User Flow Diagram 1 – Workout Logger Main Logic
 <img src="pictures/main-picture.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
 
-### 🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
+🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
 <img src="pictures/how-its-work.jpg" alt="Extended Workflow with Safety Flow" width="600" />
 
-### 🧭 User Flow Diagram 3 – Adding a Workout
+🧭 User Flow Diagram 3 – Adding a Workout
 <img src="pictures/adding a workout.jpg" alt="Add Workout Logic Diagram" width="600" />
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🧯 Error Handling & Validation
 
-**USER STORY**
+USER STORY
 As a user, I want the application to guide me when I make a mistake, so I can correct it and continue without frustration.
 
-**IMPLEMENTATION**
+IMPLEMENTATION
 • Prompts are re-displayed if input is invalid.
 • Errors such as wrong menu options or incorrect exercise formats trigger feedback.
 • Google Sheets connection errors are caught and clearly shown.
 • The app avoids crashes by using exception handling and input validation.
 
 CI Python Linter
-
 <img src="pictures/CI Python Linter.jpg" alt="CI Python Linter Results" width="600" />
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 🔧 Features Left to Implement
 
@@ -211,7 +192,7 @@ CI Python Linter
 📈 Progress Graphs
 🔐 User Authentication
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 👏 Credits
 
@@ -237,7 +218,7 @@ xterm.js Documentation – for frontend terminal emulator setup.
 
 ChatGPT – helped with code reviews and also with creation of pictures.
 
-⸻
+⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
 
 📄 License
 This project is licensed under the MIT License.
