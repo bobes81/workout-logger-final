@@ -1,51 +1,63 @@
-📘 Workout Logger – Command Line Python App
+### 📘 Workout Logger – Command Line Python App
 
 <img src="pictures/workout-logger.jpg" alt="Workout Logger Project Title Image" width="600" />
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-📖 Table of Contents • Overview • User Stories • Structure • Features • Technologies Used • Installation • Usage • Testing • Deployment • Version Control • User Flow Diagrams • Error Handling & Validation • Features Left to Implement • Credits • License
+### 📖 Table of Contents
+
+- Overview
+- User Stories
+- Structure
+- Features
+- Technologies Used
+- Installation
+- Usage
+- Testing
+- Deployment
+- Version Control
+- User Flow Diagrams
+- Error Handling & Validation
+- Features Left to Implement
+- Credits
+- License
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🧩 Overview
+### 🤩 Overview
 
 Workout Logger is a command-line interface (CLI) application built in Python. The app allows users to log their workouts by entering type, duration, and intensity, while storing the information securely in a Google Sheet. It includes built-in safety guidance and a review option to see logged workouts.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-👤 User Stories
+### 👤 User Stories
 
-As a user, I want to log my workouts with type, duration, and intensity so I can track my fitness progress.
-
-As a user, I want to be informed about safety considerations before exercising to avoid injuries.
-
-As a user, I want to view a list of my previous workouts to stay motivated and monitor my habits.
+- As a user, I want to log my workouts with type, duration, and intensity so I can track my fitness progress.
+- As a user, I want to be informed about safety considerations before exercising to avoid injuries.
+- As a user, I want to view a list of my previous workouts to stay motivated and monitor my habits.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🏗️ Structure
+### 🏋️️ Structure
 
-### Features
+#### Features
 
-#### USER STORY
-As a User, I would like to be able to easily find the various menus so that I can view information or add / edit records.
+##### USER STORY
+As a User, I would like to be able to easily find the various menus so that I can view information or add/edit records.
 
-#### IMPLEMENTATION
+##### IMPLEMENTATION
 
 **Main Menu**
-- When the application starts, a main menu will appear with the following options:
+- Options:
   - `1` – Add Workout
   - `2` – View Workouts
   - `3` – Exit
-- The user must input a correct number corresponding to each menu or they will be alerted of an incorrect choice and the menu will be presented again.
 
-This feature allows the user to easily access the main operations.
+If invalid input is entered, the user is alerted and prompted again.
 
 <img src="pictures/main-menu.jpg" alt="Main Menu" width="600" />
 
 **Choice Prompt**
-When a menu is shown, the user is prompted for a number.
 
 <img src="pictures/choice.jpg" alt="Choice Prompt" width="600" />
 
@@ -67,134 +79,149 @@ When a menu is shown, the user is prompted for a number.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-✨ Features
-• 💬 Safety pre-check information before workout logging  
-• ⌛ Input prompts for workout type, duration, and intensity  
-• ✅ Input validation and user guidance  
-• 📅 Google Sheets integration for persistent storage  
-• 📖 View workout history in an easy-to-read format
+### ✨ Features
+
+- 💬 Safety pre-check information before workout logging
+- ⌛ Input prompts for workout type, duration, and intensity
+- ✅ Input validation and user guidance
+- 🗓️ Google Sheets integration for persistent storage
+- 📖 View workout history in an easy-to-read format
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🛠️ Technologies Used
-• Python 3.13  
-• Google Sheets API (gspread, google-auth)  
-• colorama for colored terminal output  
-• Git & GitHub for version control  
-• Heroku for deployment (backend CLI app)
+### 🛠️ Technologies Used
+
+- Python 3.13
+- Google Sheets API (gspread, google-auth)
+- colorama for colored terminal output
+- Git & GitHub for version control
+- Heroku for deployment (backend CLI app)
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🧰 Installation
-1. Clone this repository:
+### 🧰 Installation
+
 ```bash
 git clone https://github.com/bobes81/workout-logger-final.git
-```
-2. Navigate to the project folder:
-```bash
 cd workout-logger-final
-```
-3. Install dependencies:
-```bash
 pip install -r requirements.txt
 ```
-4. Setup CREDS_JSON as environment variable using your Google Service Account credentials.
+
+Setup `CREDS_JSON` as an environment variable using your Google Service Account credentials.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🚀 Usage
+### 🚀 Usage
+
 Run the application locally:
+
 ```bash
 python run.py
 ```
+
 Use the terminal options to add new workouts or review history.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🧪 Testing
-✅ Input Validation
-<table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Validation - Error Message</th> <th>Expected Input Type</th> <th>Is Error Displayed?</th> </tr> <tr> <td>Type of exercise</td> <td>Text (letters only)</td> <td>✅ Yes</td> </tr> <tr> <td>Duration in minutes</td> <td>Integer > 0</td> <td>✅ Yes</td> </tr> <tr> <td>Intensity</td> <td>“Low”, “Medium”, “High”</td> <td>✅ Yes</td> </tr> <tr> <td>Safety Confirmation</td> <td>Visual only (info prompt)</td> <td>✅ Yes</td> </tr> </table>
+### 🧪 Testing
 
-📝 All fields were tested with both correct and incorrect inputs to confirm robust validation and user prompts.
+#### ✅ Input Validation
 
-🔁 Functionality Testing
-<table style="width:100%; border-collapse: collapse;" border="1"> <tr> <th>Function</th> <th>Expected Behavior</th> <th>Passed?</th> </tr> <tr> <td>run_safety_check()</td> <td>Displays health & safety information</td> <td>✅ Yes</td> </tr> <tr> <td>add_workout()</td> <td>Validates input and logs data to Google Sheet</td> <td>✅ Yes</td> </tr> <tr> <td>view_workouts()</td> <td>Displays previously logged data</td> <td>✅ Yes</td> </tr> </table>
+| Validation - Error Message | Expected Input Type | Is Error Displayed? |
+| --- | --- | --- |
+| Type of exercise | Text (letters only) | ✅ Yes |
+| Duration in minutes | Integer > 0 | ✅ Yes |
+| Intensity | "Low", "Medium", "High" | ✅ Yes |
+| Safety Confirmation | Visual only (info prompt) | ✅ Yes |
 
-☁️ Google Sheets Integration
-<table style="width:100%; border-collapse: collapse;" border="1"> <tr><td>✅ Successfully connects using <code>CREDS_JSON</code> environment variable</td></tr> <tr><td>✅ Appends workout entries correctly to the designated worksheet</td></tr> <tr><td>✅ Retrieves existing data for review</td></tr> <tr><td>✅ Handles connection errors gracefully</td></tr> <tr><td>🔒 Credentials are hidden from repository and included in <code>.gitignore</code></td></tr> </table>
+#### 📝 Functionality Testing
 
-<hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
+| Function | Expected Behavior | Passed? |
+| --- | --- | --- |
+| run_safety_check() | Displays health & safety information | ✅ Yes |
+| add_workout() | Validates input and logs data to Google Sheet | ✅ Yes |
+| view_workouts() | Displays previously logged data | ✅ Yes |
 
-☁️ Deployment
+#### ☁️ Google Sheets Integration
 
-The Workout Logger CLI app is deployed on Heroku using a Node.js server to handle terminal interaction.
-
-🔗 Live App on Heroku
-
-Backend Deployment (Heroku CLI App)
-1. Go to Heroku and click “New” → “Create new app”.
-2. Choose a name and region.
-3. Under Settings, add the CREDS_JSON environment variable under Config Vars.
-4. Add Python and NodeJS buildpacks (Python first, then NodeJS).
-5. Under Deploy, connect your GitHub repo.
-6. Click “Deploy Branch” under Manual Deploy.
-
-Frontend Terminal Setup (Xterm)
-• index.js uses node-pty to run run.py and connect via WebSocket.  
-• HTML/CSS/JS frontend served from public/ folder using express.static().  
-• xterm.js renders the terminal interface in browser.  
-• .gitattributes hides frontend from language stats.
+| Feature |
+| --- |
+| ✅ Successfully connects using `CREDS_JSON` environment variable |
+| ✅ Appends workout entries correctly to the designated worksheet |
+| ✅ Retrieves existing data for review |
+| ✅ Handles connection errors gracefully |
+| 🔒 Credentials are hidden from repository and included in `.gitignore` |
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🗂️ Version Control
-• Each new feature or improvement was implemented on a separate branch.  
-• Descriptive commit messages documented progress clearly.  
-• All changes were merged into main after local testing.  
-• GitHub ensured code backup and supported Heroku integration.
+### ☁️ Deployment
+
+- Deployed on Heroku using a Node.js server to handle terminal interaction.
+
+Steps:
+1. Create new app in Heroku.
+2. Set `CREDS_JSON` under Config Vars.
+3. Add Python and NodeJS buildpacks.
+4. Connect GitHub repo.
+5. Deploy branch.
+
+Frontend (Static Site):
+- `index.js` uses `node-pty` and `express.static()`.
+- Terminal rendered via `xterm.js`.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-### 🧭 User Flow Diagrams
+### 🗂️ Version Control
 
-🧭 User Flow Diagram 1 – Workout Logger Main Logic  
+- Separate branches for each new feature.
+- Clear, descriptive commit messages.
+- Local testing before merges.
+- GitHub used for remote backups and Heroku integration.
+
+<hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
+
+### 🔍️ User Flow Diagrams
+
+#### 🔍 User Flow Diagram 1 – Workout Logger Main Logic
+
 <img src="pictures/main-picture.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
 
-🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer  
+#### 🔍 User Flow Diagram 2 – Extended Workflow with Safety Layer
+
 <img src="pictures/how-its-work.jpg" alt="Extended Workflow with Safety Flow" width="600" />
 
-🧭 User Flow Diagram 3 – Adding a Workout  
+#### 🔍 User Flow Diagram 3 – Adding a Workout
+
 <img src="pictures/adding a workout.jpg" alt="Add Workout Logic Diagram" width="600" />
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🧯 Error Handling & Validation
+### 🚑 Error Handling & Validation
 
-USER STORY  
-As a user, I want the application to guide me when I make a mistake, so I can correct it and continue without frustration.
+USER STORY
+- As a user, I want the application to guide me when I make a mistake, so I can correct it and continue without frustration.
 
-IMPLEMENTATION  
-• Prompts are re-displayed if input is invalid.  
-• Errors such as wrong menu options or incorrect exercise formats trigger feedback.  
-• Google Sheets connection errors are caught and clearly shown.  
-• The app avoids crashes by using exception handling and input validation.
+IMPLEMENTATION
+- Prompts re-displayed if invalid.
+- Helpful error messages for wrong inputs.
+- Connection errors caught and shown.
+- Robust exception handling and validation.
 
-CI Python Linter  
 <img src="pictures/CI Python Linter.jpg" alt="CI Python Linter Results" width="600" />
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-🔧 Features Left to Implement
+### 🔧 Features Left to Implement
 
-📊 Workout Statistics Overview  
-🔔 Reminders System  
-📆 Workout Scheduler  
-📈 Progress Graphs  
-🔐 User Authentication
+- 📊 Workout Statistics Overview
+- 🔔 Reminders System
+- 🗓️ Workout Scheduler
+- 📈 Progress Graphs
+- 🔐 User Authentication
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-👏 Credits
+### 👏 Credits
 
 Code Institute – for curriculum structure, project templates and deployment guidance.
 
@@ -220,6 +247,7 @@ ChatGPT – helped with code reviews and also with creation of pictures.
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
-📄 License  
+### 📄 License
+
 This project is licensed under the MIT License.
 
