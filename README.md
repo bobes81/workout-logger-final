@@ -221,7 +221,7 @@ IMPLEMENTATION
 - Connection errors caught and shown.
 - Robust exception handling and validation.
 
-<img src="pictures/CI Python Linter.jpg" alt="CI Python Linter Results" width="600" />
+<img src="pictures/CI Python Linter.jpg" alt="CI Python Linter Results" width="400" />
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
 
