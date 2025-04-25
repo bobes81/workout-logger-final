@@ -2,7 +2,7 @@
 
 <img src="pictures/workout-logger.jpg" alt="Workout Logger Project Title Image" width="600" />
 
-⸻
+
 
 📖 Table of Contents
 • Overview
@@ -21,13 +21,13 @@
 • Credits
 • License
 
-⸻
+
 
 🧩 Overview
 
 Workout Logger is a command-line interface (CLI) application built in Python. The app allows users to log their workouts by entering type, duration, and intensity, while storing the information securely in a Google Sheet. It includes built-in safety guidance and a review option to see logged workouts.
 
-⸻
+
 
 👤 User Stories
 
@@ -37,7 +37,7 @@ As a user, I want to be informed about safety considerations before exercising t
 
 As a user, I want to view a list of my previous workouts to stay motivated and monitor my habits.
 
-⸻
+
 
 🏗️ Structure
 
@@ -80,7 +80,7 @@ When a menu is shown, the user is prompted for a number.
 
 <img src="pictures/exit.jpg" alt="Exit Message" width="600" />
 
-⸻
+
 
 ✨ Features
 • 💬 Safety pre-check information before workout logging
@@ -89,7 +89,7 @@ When a menu is shown, the user is prompted for a number.
 • 📅 Google Sheets integration for persistent storage
 • 📖 View workout history in an easy-to-read format
 
-⸻
+
 
 🛠️ Technologies Used
 • Python 3.13
@@ -98,7 +98,7 @@ When a menu is shown, the user is prompted for a number.
 • Git & GitHub for version control
 • Heroku for deployment (backend CLI app)
 
-⸻
+
 
 🧰 Installation
 1. Clone this repository:
@@ -115,7 +115,7 @@ pip install -r requirements.txt
 ```
 4. Setup CREDS_JSON as environment variable using your Google Service Account credentials.
 
-⸻
+
 
 🚀 Usage
 Run the application locally:
@@ -124,7 +124,7 @@ python run.py
 ```
 Use the terminal options to add new workouts or review history.
 
-⸻
+
 
 🧪 Testing
 ✅ Input Validation
@@ -167,23 +167,23 @@ Frontend Terminal Setup (Xterm)
 • All changes were merged into main after local testing.
 • GitHub ensured code backup and supported Heroku integration.
 
-⸻
+
 
 ### 🧭 User Flow Diagrams
 
-## 🧭 User Flow Diagram 1 – Workout Logger Main Logic
+    🧭 User Flow Diagram 1 – Workout Logger Main Logic
 
-<img src="pictures/main-picture.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
+<img src="pictures/main-pictue.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
 
-## 🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
+    🧭 User Flow Diagram 2 – Extended Workflow with Safety Layer
 
 <img src="pictures/how-its-work.jpg" alt="Extended Workflow with Safety Flow" width="600" />
 
-## 🧭 User Flow Diagram 3 – Adding a Workout
+    🧭 User Flow Diagram 3 – Adding a Workout
 
 <img src="pictures/adding a workout.jpg" alt="Add Workout Logic Diagram" width="600" />
 
-⸻
+
 
 🧯 Error Handling & Validation
 
