@@ -198,14 +198,14 @@ Users start at the main_menu(), provide manual input, and are routed based on va
 This chart includes a safety layer before logging a workout.
 Users receive safety information before proceeding, with options to view logs or proceed to workout entry.
 
-<img src="pictures/diagram2.jpg" alt="Extended Workflow with Safety Flow" width="600" />
+<img src="pictures/diagram2.jpg" alt="Extended Workflow with Safety Flow" width="400" />
 
 #### 🔍 User Flow Diagram 3 – Adding a Workout
 
 This diagram focuses on the add_workout() process.
 Users enter workout details, and upon validation, the workout is logged successfully.
 
-<img src="pictures/workout.jpg" alt="Add Workout Logic Diagram" width="400" />
+<img src="pictures/workout.jpg" alt="Add Workout Logic Diagram" width="300" />
 
 
 <hr style="border: none; height: 1px; background-color: #ddd; margin: 30px 0;" />
