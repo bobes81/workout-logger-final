@@ -191,7 +191,7 @@ Users start at the main_menu(), provide manual input, and are routed based on va
 
 ### 🧭 User Flow Diagram 1 – Workout Logger Main Logic
 
-<img src="pictures/safety-check.jpg" alt="Workout Logger Main Menu Flowchart" width="600" />
+<img src="pictures/safety-check.jpg" alt="Workout Logger Main Menu Flowchart" width="400" />
 
 #### 🔍 User Flow Diagram 2 – Extended Workflow with Safety Layer
 
